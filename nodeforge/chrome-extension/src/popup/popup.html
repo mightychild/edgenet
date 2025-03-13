@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EdgeNet Node</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="navbar">
+    <button id="navToggle">
+      <span class="icon">&#9776;</span> <!-- Hamburger icon -->
+    </button>
+    <div id="navLinks">
+      <a href="#" id="dashboardLink">Dashboard</a>
+      <a href="#" id="tasksLink">Tasks</a>
+      <a href="#" id="referralLink">Referral</a>
+    </div>
+  </div>
+  <div id="status">
+    <div id="loader">
+      <div class="giftbox"></div>
+    </div>
+    <p>Status: <span id="nodeStatus">Offline</span></p>
+    <button id="toggleButton">Start Node</button>
+  </div>
+  <div class="stats">
+    <p>Uptime: <span id="uptime">0</span> seconds</p>
+    <p>Earnings: <span id="earnings">0</span> $EDGE</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
