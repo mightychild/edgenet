@@ -1,0 +1,88 @@
+/* Profile Container */
+.profile-container {
+    padding: 20px;
+    background-color: #1e1e2f; /* Dark background */
+    color: #ffffff; /* White text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-container h1 {
+    color: #6c5ce7; /* Purple color */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Profile Card */
+  .profile-card {
+    background-color: #2d2d44; /* Slightly lighter background */
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+  }
+  
+  /* Profile Info */
+  .profile-info {
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #3e3e5e; /* Darker background for info items */
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .info-item:hover {
+    background-color: #4e4e6e; /* Slightly lighter on hover */
+  }
+  
+  .info-item .label {
+    color: #a29bfe; /* Lighter purple */
+    font-weight: bold;
+  }
+  
+  .info-item .value {
+    color: #ffffff; /* White text */
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .profile-card {
+      padding: 20px;
+      width: 100%; /* Full width on mobile */
+      border-radius: 0; /* Remove border radius for full-width effect */
+    }
+  
+    .info-item {
+      flex-direction: column; /* Stack label and value vertically */
+      align-items: flex-start;
+      gap: 5px;
+      padding: 15px; /* Increase padding for better spacing */
+    }
+  
+    .info-item .label {
+      font-size: 0.9rem; /* Slightly smaller label on mobile */
+    }
+  
+    .info-item .value {
+      font-size: 1rem; /* Slightly larger value on mobile */
+    }
+  }

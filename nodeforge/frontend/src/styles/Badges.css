@@ -1,0 +1,127 @@
+/* Badges.css */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.badges-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.badges-content {
+  width: calc(100% - 240px); /* Accounts for navbar width */
+  max-width: 1200px;
+  margin-left: 240px; /* Matches navbar width */
+  padding: 30px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.badges-content h1 {
+  color: #6c5ce7;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.badges-content p {
+  color: #a29bfe;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+/* Horizontal flex layout for badges */
+.badges-flex-container {
+  width: 100%;
+  overflow-x: auto; /* Allows horizontal scrolling if needed */
+  padding-bottom: 20px; /* Space for scrollbar */
+}
+
+.badges-flex {
+  display: flex;
+  gap: 25px;
+  padding: 10px 5px; /* Padding for visual balance */
+}
+
+.badge {
+  background-color: #2d2d44;
+  border-radius: 10px;
+  padding: 25px;
+  min-width: 200px; /* Minimum card width */
+  text-align: center;
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* Prevents cards from shrinking */
+}
+
+.badge:hover {
+  transform: translateY(-5px);
+}
+
+.badge img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.badge h3 {
+  color: #6c5ce7;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.badge p {
+  color: #a29bfe;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Footer */
+#footer {
+  width: calc(100% - 240px);
+  max-width: 1200px;
+  margin-left: 240px;
+  background-color: #1e1e2f;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  border-top: 1px solid #3e3e5e;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .badges-content, #footer {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .badges-content, #footer {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 15px;
+  }
+
+  .badge {
+    min-width: 180px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge {
+    min-width: 160px;
+    padding: 15px;
+  }
+  
+  .badges-flex {
+    gap: 15px;
+  }
+}

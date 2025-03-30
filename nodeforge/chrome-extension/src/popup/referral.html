@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EdgeNet Referral</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="navbar">
+    <button id="navToggle">
+      <span class="icon">&#9776;</span> <!-- Hamburger icon -->
+    </button>
+    <div id="navLinks">
+      <a href="popup.html" id="dashboardLink">Dashboard</a>
+      <a href="referral.html" id="referralLink">Referral</a>
+    </div>
+  </div>
+  <div id="referral-container">
+    <h1>Referral Program</h1>
+    <p>Your referral link:</p>
+    <div id="referral-link-container">
+      <input type="text" id="referral-link" readonly />
+      <button id="copy-button">Copy</button>
+    </div>
+  </div>
+  <script src="referral.js"></script>
+</body>
+</html>

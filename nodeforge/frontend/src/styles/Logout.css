@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e2f; /* Dark background */
+  color: #ffffff; /* White text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Logout Container */
+.logout-container {
+  text-align: center;
+  background-color: #2d2d44; /* Slightly lighter background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Heading */
+.logout-container h1 {
+  font-size: 24px;
+  color: #6c5ce7; /* Purple color */
+  margin-bottom: 20px;
+}
+
+/* Paragraph */
+.logout-container p {
+  font-size: 16px;
+  color: #a29bfe; /* Lighter purple */
+}
+
+/* Confirmation Dialog */
+.confirmation-dialog {
+  text-align: center;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.confirmation-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirmation-buttons button:first-child {
+  background-color: #6c5ce7; /* Purple color */
+  color: white;
+}
+
+.confirmation-buttons button:first-child:hover {
+  background-color: #5a4dbf; /* Darker purple on hover */
+}
+
+.confirmation-buttons button:last-child {
+  background-color: #ff7675; /* Red color */
+  color: white;
+}
+
+.confirmation-buttons button:last-child:hover {
+  background-color: #d63031; /* Darker red on hover */
+}

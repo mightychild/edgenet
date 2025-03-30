@@ -9,7 +9,11 @@ chrome.storage.local.get(['nodeActive', 'totalUptime', 'edgeBalance'], (data) =>
   totalUptime = data.totalUptime || 0;
   edgeBalance = data.edgeBalance || 0;
   updateUI();
-  startUptimeCounter(); // Start uptime counter regardless of toggle state
+
+  // Only start the uptime counter if the node is active
+  if (nodeActive) {
+    startUptimeCounter();
+  }
 });
 
 // Update the UI
@@ -36,9 +40,8 @@ function updateUI() {
 // Start the uptime counter
 function startUptimeCounter() {
   uptimeInterval = setInterval(() => {
-    if (totalUptime >= 20) { // 12 hours in seconds
+    if (totalUptime >= 20) { // 12 hours in seconds (simulated as 20 seconds for testing)
       edgeBalance += 10; // Increment $EDGE balance by 10
-      // alert('Uptime has reached 12 hours. $EDGE balance increased by 10.');
       totalUptime = 0; // Reset uptime
       saveNodeState({ nodeActive, totalUptime, edgeBalance }); // Save new balance and reset uptime
     }
@@ -51,6 +54,12 @@ function startUptimeCounter() {
 // Toggle node on/off
 document.getElementById('toggleButton').addEventListener('click', async () => {
   nodeActive = !nodeActive;
+
+  if (nodeActive) {
+    startUptimeCounter(); // Start the counter when the node is turned on
+  } else {
+    clearInterval(uptimeInterval); // Stop the counter when the node is turned off
+  }
 
   // Save state
   await saveNodeState({ nodeActive, totalUptime, edgeBalance });

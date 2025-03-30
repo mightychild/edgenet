@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Navbar-safe container */
+.referral-container {
+  width: calc(100% - 240px); /* Accounts for navbar width */
+  max-width: 1200px;
+  margin: 0 auto 0 240px; /* Matches navbar width */
+  padding: 30px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.referral-container h1 {
+  color: #6c5ce7;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* Parent Card Styles */
+.parent-card {
+  background-color: #2d2d44;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.parent-card h2 {
+  color: #6c5ce7;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Child Cards Container */
+.child-cards-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Child Card Styles */
+.child-card {
+  background-color: #3a3a5a;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.child-card h3 {
+  color: #6c5ce7;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+/* Referral Highlight Styles */
+.referral-highlight {
+  color: #a29bfe;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.referral-highlight a {
+  color: #a29bfe;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.referral-highlight a:hover {
+  text-decoration: underline;
+}
+
+/* Copy Button Styles */
+.copy-button {
+  background: none;
+  border: none;
+  color: #a29bfe;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.copy-button:hover {
+  color: #6c5ce7;
+}
+
+/* Footer that matches container width */
+#footer {
+  width: calc(100% - 240px); /* Same as container */
+  max-width: 1200px;
+  margin-left: 240px; /* Align with container */
+  background-color: #1e1e2f;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  border-top: 1px solid #3e3e5e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .referral-container, #footer {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .referral-container, #footer {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 15px;
+  }
+  
+  .child-cards-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .parent-card {
+    padding: 20px 15px;
+  }
+  
+  .referral-highlight {
+    flex-wrap: wrap;
+  }
+  
+  .referral-highlight a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

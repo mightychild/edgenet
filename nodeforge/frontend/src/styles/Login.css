@@ -1,0 +1,90 @@
+/* Common Styles */
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1e1e2f; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+.login-form,
+.signup-form {
+  background-color: #2d2d44; /* Slightly lighter background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-form h1,
+.signup-form h1 {
+  color: #6c5ce7; /* Purple color */
+  margin-bottom: 20px;
+}
+
+.login-form input,
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3e3e5e; /* Darker background */
+  color: #ffffff; /* White text */
+}
+
+.login-form button,
+.signup-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6c5ce7; /* Purple color */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.login-form button:hover,
+.signup-form button:hover {
+  background-color: #a29bfe; /* Lighter purple on hover */
+}
+
+.success-message {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f44336; /* Red */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form p,
+.signup-form p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.login-form a,
+.signup-form a {
+  color: #6c5ce7; /* Purple color */
+  text-decoration: none;
+}
+
+.login-form a:hover,
+.signup-form a:hover {
+  text-decoration: underline;
+}

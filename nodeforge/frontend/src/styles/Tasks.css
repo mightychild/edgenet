@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+
+  min-height: 100vh;
+  display: flex;
+
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Navbar-safe container */
+.tasks-container {
+  width: calc(100% - 240px); /* Accounts for navbar width */
+  max-width: 1200px;
+  margin: 0 auto 0 240px; /* Matches navbar width */
+  padding: 30px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.tasks-container h1 {
+  color: #6c5ce7;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+/* Task Cards */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.task-card {
+  background-color: #2d2d44;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.task-card-content {
+  flex: 1;
+}
+
+.task-card h3 {
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.task-card p {
+  color: #e0e0e0;
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.task-card button {
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+/* Footer that matches container width */
+/* #footer {
+  width: calc(135%); 
+  margin-left: 250px; 
+} */
+
+/* .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.copyright {
+  color: #a29bfe;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #a29bfe;
+  text-decoration: none;
+  font-size: 0.9rem;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .tasks-container, #footer {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tasks-container, #footer {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 15px;
+  }
+  
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .task-card button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EdgeNet Login</title>
+  <link rel="stylesheet" href="login.css"> <!-- Use login.css -->
+</head>
+<body>
+  <div id="login-container">
+    <div id="logo">
+      <img src="logo.png" alt="EdgeNet Logo" /> <!-- Add your logo file -->
+    </div>
+    <h1>Welcome to EdgeNet</h1>
+    <form id="login-form">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-message" class="error"></p>
+    <p id="signup-link">Don't have an account? <a href="https://yourapp.com/signup" target="_blank">Sign up</a></p>
+    <div id="google-login">
+      <p>Or log in with:</p>
+      <button id="google-login-button">
+        <img src="google-icon.png" alt="Google Icon" /> <!-- Add Google icon -->
+        <span>Google</span>
+      </button>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>

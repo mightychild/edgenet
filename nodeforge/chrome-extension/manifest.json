@@ -1,23 +1,21 @@
 {
-    "manifest_version": 3,
-    "name": "EdgeNet Node",
-    "version": "1.0",
-    "description": "Contribute your device's resources to the EdgeNet network.",
-    "permissions": ["storage", "identity", "alarms"],
-    "background": {
-      "service_worker": "src/background/background.js"
-    },
-    "action": {
-      "default_popup": "src/popup/popup.html",
-      "default_icon": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
-      }
-    },
-    "icons": {
+  "manifest_version": 3,
+  "name": "EdgeNet Extension",
+  "version": "1.0",
+  "description": "Integrate EdgeNet with your browser.",
+  "permissions": ["storage", "activeTab", "identity"],
+  "background": {
+    "service_worker": "/src/background/background.js"
+  },
+  "action": {
+    "default_popup": "src/popup/login.html", 
+    "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
-  }
+  },
+  "host_permissions": [
+    "http://localhost:5000/*" 
+  ]
+}
