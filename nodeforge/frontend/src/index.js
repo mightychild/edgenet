@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-//import './styles.css';
+import Signup from './components/Signup';
+
 
 ReactDOM.render(
   <React.StrictMode>
