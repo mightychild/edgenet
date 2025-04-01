@@ -1,80 +1,93 @@
 let nodeActive = false;
 let totalUptime = 0;
-let edgeBalance = 0; // Track $EDGE balance
+let pointsBalance = 0; // Changed from edgeBalance to pointsBalance
 let uptimeInterval;
 
 // Load saved state
-chrome.storage.local.get(['nodeActive', 'totalUptime', 'edgeBalance'], (data) => {
+chrome.storage.local.get(['nodeActive', 'totalUptime', 'pointsBalance'], (data) => {
   nodeActive = data.nodeActive || false;
   totalUptime = data.totalUptime || 0;
-  edgeBalance = data.edgeBalance || 0;
+  pointsBalance = data.pointsBalance || 0;
   updateUI();
 
-  // Only start the uptime counter if the node is active
   if (nodeActive) {
     startUptimeCounter();
   }
 });
 
-// Update the UI
 function updateUI() {
   const nodeStatus = document.getElementById('nodeStatus');
   const toggleButton = document.getElementById('toggleButton');
   const loader = document.querySelector('.giftbox');
   const uptimeDisplay = document.getElementById('uptime');
-  const earningsDisplay = document.getElementById('earnings');
+  const pointsDisplay = document.getElementById('points');
 
   nodeStatus.textContent = nodeActive ? 'Online' : 'Offline';
   toggleButton.textContent = nodeActive ? 'Stop Node' : 'Start Node';
   uptimeDisplay.textContent = totalUptime;
-  earningsDisplay.textContent = edgeBalance;
+  pointsDisplay.textContent = pointsBalance;
 
-  // Control loader animation
   if (nodeActive) {
-    loader.style.animationPlayState = 'running'; // Start animation
+    loader.style.animationPlayState = 'running';
   } else {
-    loader.style.animationPlayState = 'paused'; // Pause animation
+    loader.style.animationPlayState = 'paused';
   }
 }
 
-// Start the uptime counter
 function startUptimeCounter() {
   uptimeInterval = setInterval(() => {
-    if (totalUptime >= 20) { // 12 hours in seconds (simulated as 20 seconds for testing)
-      edgeBalance += 10; // Increment $EDGE balance by 10
-      totalUptime = 0; // Reset uptime
-      saveNodeState({ nodeActive, totalUptime, edgeBalance }); // Save new balance and reset uptime
-    }
     totalUptime++;
-    saveNodeState({ totalUptime, edgeBalance });
+    pointsBalance = Math.floor(totalUptime / 60); // 1 point per minute
+    saveNodeState({ nodeActive, totalUptime, pointsBalance });
     updateUI();
-  }, 1000);
+  }, 1000); // Update every second
 }
 
-// Toggle node on/off
 document.getElementById('toggleButton').addEventListener('click', async () => {
   nodeActive = !nodeActive;
 
   if (nodeActive) {
-    startUptimeCounter(); // Start the counter when the node is turned on
+    startUptimeCounter();
   } else {
-    clearInterval(uptimeInterval); // Stop the counter when the node is turned off
+    clearInterval(uptimeInterval);
   }
 
-  // Save state
-  await saveNodeState({ nodeActive, totalUptime, edgeBalance });
+  await saveNodeState({ nodeActive, totalUptime, pointsBalance });
   updateUI();
 });
 
-// Save node state
 const saveNodeState = async (state) => {
   return new Promise((resolve) => {
     chrome.storage.local.set(state, () => resolve());
   });
 };
 
-// Toggle navbar
-document.getElementById('navToggle').addEventListener('click', () => {
-  const navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('active');
+// Set cookie when node is active
+function setSessionCookie() {
+  const cookieDetails = {
+    url: "http://localhost:5000",
+    name: "nodeSession",
+    value: "active",
+    expirationDate: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30 // 30 days
+  };
+  chrome.cookies.set(cookieDetails);
+}
+
+// Remove cookie when node is inactive
+function removeSessionCookie() {
+  chrome.cookies.remove({
+    url: "http://localhost:5000",
+    name: "nodeSession"
+  });
+}
+
+// Update cookie when node status changes
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes.nodeActive) {
+    if (changes.nodeActive.newValue) {
+      setSessionCookie();
+    } else {
+      removeSessionCookie();
+    }
+  }
 });

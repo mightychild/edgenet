@@ -5,63 +5,13 @@ body {
   padding: 0;
   background-color: #1e1e2f; /* Dark background */
   color: #ffffff; /* White text */
-  width: 350px; /* MetaMask extension width */
-  height: 500px; /* MetaMask extension height */
+  width: 350px; /* Fixed width for extension */
+  height: 500px; /* Fixed height for extension */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Space between loader and stats */
+  justify-content: center;
   text-align: center;
-}
-
-/* Navbar Styles */
-#navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1e1e2f;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#navToggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-#navLinks {
-  display: none; /* Hidden by default */
-  flex-direction: column;
-  background-color: #1e1e2f;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-#navLinks a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 14px;
-}
-
-#navLinks a:hover {
-  background-color: #6c5ce7;
-}
-
-/* Show nav links when toggled */
-#navLinks.active {
-  display: flex;
 }
 
 /* Status Container */
@@ -69,7 +19,7 @@ body {
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  flex-grow: 1; /* Allow status to take up remaining space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +31,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px; /* Space between loader and status */
+  margin-bottom: 20px;
 }
 
 .giftbox {
@@ -133,9 +83,16 @@ body {
   }
 }
 
+/* Status Text */
+#nodeStatus {
+  font-weight: bold;
+  color: #6c5ce7; /* Purple color */
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
 /* Button Styles */
 button {
-  margin-top: 20px;
   padding: 10px 20px;
   background-color: #6c5ce7; /* Purple color */
   color: white;
@@ -144,6 +101,7 @@ button {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  margin-bottom: 30px;
 }
 
 button:hover {
@@ -155,25 +113,22 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Status Text */
-#nodeStatus {
-  font-weight: bold;
-  color: #6c5ce7; /* Purple color */
-}
-
-/* Uptime and Earnings */
+/* Stats Section */
 .stats {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   box-sizing: border-box;
   background-color: #2d2d44; /* Slightly lighter background */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-top: 1px solid #3e3e5e;
 }
 
 .stats p {
-  margin-bottom: 5px;
+  margin: 8px 0;
   font-size: 14px;
   color: #a29bfe; /* Lighter purple */
+}
+
+.stats span {
+  color: #ffffff; /* White for numbers */
+  font-weight: bold;
 }
