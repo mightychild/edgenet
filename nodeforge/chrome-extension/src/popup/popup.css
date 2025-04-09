@@ -1,46 +1,68 @@
-/* General Styles */
+/* Professional Dark Theme - MetaMask Size (357px × 600px) */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1e1e2f; /* Dark background */
-  color: #ffffff; /* White text */
-  width: 350px; /* Fixed width for extension */
-  height: 500px; /* Fixed height for extension */
+  width: 357px;
+  height: 600px;
+  background-color: #121420; /* Darker background */
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  padding: 18px 16px;
+  background-color: #1a1b2f;
+  border-bottom: 1px solid #2a2b45;
   text-align: center;
 }
 
-/* Status Container */
-#status {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  flex-grow: 1;
+.header h1 {
+  color: #6c5ce7;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: 24px 20px;
+}
+
+/* Status Card */
+.status-card {
+  background: linear-gradient(145deg, #1e1e3a, #2a2a4a);
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 24px;
+  text-align: center;
+  border: 1px solid #3a3a5a;
 }
 
 /* Loader Animation */
-#loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+.loader-container {
+  margin-bottom: 24px;
 }
 
 .giftbox {
-  width: 60px;
-  height: 60px;
-  background-color: #6c5ce7; /* Purple color */
-  border-radius: 15px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(145deg, #6c5ce7, #5a4dbf);
+  border-radius: 18px;
   position: relative;
-  animation: pulse 1.5s infinite;
+  animation: pulse 2s infinite ease-in-out;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
 }
 
 .giftbox::before {
@@ -48,10 +70,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 40px;
-  height: 40px;
-  background-color: #a29bfe; /* Lighter purple */
-  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(145deg, #a29bfe, #8d83e5);
+  border-radius: 12px;
   transform: translate(-50%, -50%);
 }
 
@@ -60,75 +82,109 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: #ffffff; /* White */
-  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: #ffffff;
+  border-radius: 6px;
   transform: translate(-50%, -50%);
 }
 
-/* Pulse Animation */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(2deg); }
+  50% { transform: scale(1.03) rotate(-2deg); }
+  75% { transform: scale(1.05) rotate(1deg); }
 }
 
 /* Status Text */
-#nodeStatus {
-  font-weight: bold;
-  color: #6c5ce7; /* Purple color */
-  margin-bottom: 20px;
-  font-size: 1.2rem;
+.status-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #d1d1e0;
+}
+
+.node-status {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 12px 0 24px;
+  color: #6c5ce7;
 }
 
 /* Button Styles */
-button {
-  padding: 10px 20px;
-  background-color: #6c5ce7; /* Purple color */
+.action-button {
+  width: 80%;
+  padding: 14px;
+  background: linear-gradient(145deg, #6c5ce7, #5a4dbf);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-  margin-bottom: 30px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
 }
 
-button:hover {
-  background-color: #5a4dbf; /* Darker purple on hover */
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(108, 92, 231, 0.4);
 }
 
-button:disabled {
-  background-color: #b2bec3; /* Gray when disabled */
+.action-button:active {
+  transform: translateY(0);
+}
+
+.action-button:disabled {
+  background: #3a3a5a;
   cursor: not-allowed;
+  transform: none !important;
 }
 
 /* Stats Section */
-.stats {
+.stats-panel {
   width: 100%;
-  padding: 15px;
-  box-sizing: border-box;
-  background-color: #2d2d44; /* Slightly lighter background */
-  border-top: 1px solid #3e3e5e;
+  background-color: #1a1b2f;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: auto;
+  border: 1px solid #2a2b45;
 }
 
-.stats p {
-  margin: 8px 0;
-  font-size: 14px;
-  color: #a29bfe; /* Lighter purple */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
 }
 
-.stats span {
-  color: #ffffff; /* White for numbers */
-  font-weight: bold;
+.stat-label {
+  color: #a29bfe;
+  font-weight: 500;
 }
+
+.stat-value {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Responsive Adjustments */
+/* @media (max-width: 400px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .status-card {
+    padding: 20px;
+  }
+  
+  .giftbox {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .action-button {
+    width: 90%;
+  }
+} */

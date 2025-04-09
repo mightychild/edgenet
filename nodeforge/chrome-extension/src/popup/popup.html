@@ -3,19 +3,37 @@
 <head>
   <title>EdgeNet Node</title>
   <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="status">
-    <div id="loader">
-      <div class="giftbox"></div>
+  <div class="header">
+    <h1>EdgeNet Node Dashboard</h1>
+  </div>
+  
+  <div class="content">
+    <div class="status-card">
+      <div class="loader-container">
+        <div class="giftbox"></div>
+      </div>
+      
+      <p class="status-text">Node Status:</p>
+      <p class="node-status" id="nodeStatus">Offline</p>
+      
+      <button class="action-button" id="toggleButton">Start Node</button>
     </div>
-    <p>Status: <span id="nodeStatus">Offline</span></p>
-    <button id="toggleButton">Start Node</button>
+    
+    <div class="stats-panel">
+      <div class="stat-row">
+        <span class="stat-label">Uptime:</span>
+        <span class="stat-value" id="uptime">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Points Earned:</span>
+        <span class="stat-value" id="points">0</span>
+      </div>
+    </div>
   </div>
-  <div class="stats">
-    <p>Uptime: <span id="uptime">0</span> seconds</p>
-    <p>Points: <span id="points">0</span></p>
-  </div>
+  
   <script src="popup.js"></script>
 </body>
 </html>
