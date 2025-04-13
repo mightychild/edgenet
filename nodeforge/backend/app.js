@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 })
 .then(() => console.log('Connected to MongoDB Atlas'))
-.catch((err) => console.error('There is error connecting to MongoDB Atlas:', err));
+.catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
 
 // Routes
 app.use('/api/auth', authRoutes);
