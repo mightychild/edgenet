@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const app = express();
 
-// Middleware
+// Middlewar
 app.use(express.json());
 
 // Connect to MongoDB Atlas
